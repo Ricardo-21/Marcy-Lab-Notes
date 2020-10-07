@@ -18,4 +18,9 @@ __display: flex;__
   * commmands to use | __ < flex-direction > < flex-wrap > __ |
 * align-content <- (_Aligns a flex container's lines within the flex container when there is extra space on the cross-axis_)
   * commands to use | __flex-start__ | __flex-end__ | __center__ | __space-between__ | __space-around__ | __stretch (default)__|
+* flex-grow <- similar to order but makes individual items larger
+  * ex. (flex-grow: 2;) this would enlarge the individual item
+* flex-basis <- Works similar to width
+  * (We can use px,%)
+
   
