@@ -23,4 +23,13 @@ __display: flex;__
 * flex-basis <- Works similar to width
   * (We can use px,%)
 
+# CSS - for mobile or for smaller screens 
+
+(ex:
+
+@media only screen and (min-width: 480px){
+
+}
+
+this would add a seperate css profile to screens below 480px!
   
