@@ -123,4 +123,223 @@ parameter is not a valid type.
 * Reading error message AND the line it's on! 
 * What if there is no error message (silent failure)
 ** Check your assumptions
+___
 
+#### Ternary operators
+
+``` javascript
+  function stringy(a) {
+  // Write your code here
+  let str = '';
+  for (let i = 1; i <= a; i++){
+    !(i % 2)  ? str += `0` : str += `1`;
+  }
+  return str;
+}```
+
+* ternary operators, like if statements, can use truthy values to check a condition. In this case `i%2` will 
+have a value of either 0 or any remainder. As we know 0 has a boolean value of falsy and any other number has a 
+value of truthy 
+
+___
+
+# Arrays 
+
+#### What are arrays and why are they useful?
+
+* Arrays are lists/ data structures, that may be used to hold a series of
+information
+
+#### What is a *data structure*? 
+
+* A thing that holds a series of information
+
+### Pass by value 
+
+* Primitive data types: pass by value 
+
+``` javascript 
+let original = 10;
+
+function double(num) {
+	num = num * 2;
+	return num;
+}
+
+let copy = double(original);
+console.log("copy is", copy)
+console.log("original is", original);
+```
+### Pass by reference
+
+* Non-primitive data types: pass by refernce
+
+``` javascript 
+let ogArray = [10];
+
+function doubleArray(arr) {
+	arr[0] = arr[0] * 2;
+	return arr;
+}
+
+let copyArr = doubleArray(ogArray);
+console.log(copyArr);
+console.log(ogArray);
+``` 
+### Important Array Tools
+
+* What happens when you invoke a function with extra arguments?
+
+** Well what happens is that it ignores any extra argument beyond the amount 
+of arguments it accepts.
+
+* What is the purpose of rest parameters?
+
+** What rest parameters does is it allows the arguments to be passed as an array
+given that there is given extra arguments. `function (a,b, ...manyMoreArgs){`
+
+*Destructure a javascript array. It breaks down the array, similar to arguments in
+a function 
+
+``` javascript
+const x = [1, 2, 3, 4, 5];
+const [y, z] = x;
+
+console.log(y); // 1
+console.log(z); // 2
+```
+
+* What is the purpose of the spread operator? `...`
+In a sense it allows arrays/ objects to be passed through. Instead to be treated
+as arguments instead of an array. 
+
+``` javascript
+function myFunction(v, w, x, y, z) { }
+let args = [0, 1];
+myFunction(-1, ...args, 2, ...[3]);
+```
+
+___
+
+# Objects 
+
+### What is an object and why are they useful?
+
+* Another *data structure* !
+* How are they different from arrays? 
+** They organize properties, in a sense they collect and organize data in a way
+that arrays cannot.
+** EX : 
+```
+["Ann", 28, true] // "lists"
+{age: 28, teacher: true, name: "Ann"} //organize, property, we can move around the
+properties of the object.
+
+```
+
+### Syntax to create an object
+
+To create an object it would like: 
+
+``` javascript 
+let person = {
+	"crewmate": true,
+	"color": "red",
+	"imposter": false
+};
+```
+
+### Parts of an object 
+* key -> must be a string (or symbol...)
+* value -> can be anything
+** it can even be another object
+* property
+
+### Getting values from an Object - Dot notation
+* `obj.key` -> key is a STRING
+* `obj[key]` -> key is a VARIABLE or EXPRESSION
+* EX:
+
+``` javascript 
+person.crewmate;
+/// this is expected to return true
+
+person["color"]
+/// Expected return is red
+``` 
+
+### Iterating through objects 
+
+* How to get all the keys of an Object as an Array
+	* Object.keys(obj)
+
+EX:
+
+``` javascript 
+keyNames = Object.keys(person);
+///expected return ["crewamte","color","imposter"]
+
+for(let i = 0; i < keyNames.length; i++) {
+	let key = keyName[i];
+	console.log(key);
+	console.log(person[key]);
+}
+
+/// Now the for loop's expected to log the values of the properties.
+``` 
+
+* `for...in` loops
+	* A more eloquent way to iterate over all Object keys
+
+EX:
+
+``` javascript 
+for (let key in person) {
+	console.log(`the key is: ${key} and the value is: ${person[key]}`)
+}
+/// Expected to log both key and value
+
+___ 
+
+#UNIT-4 OBJECT-ORIENTED PROGRAMMING 
+
+### Encapsulation and Objects
+
+* Absraction 
+- take away (hide) the implementation details 
+- not to be concerned under the hood
+- private vs public data 
+- JS has public data only
+
+* Encapsulation 
+- package together (state) data properties and (behavior) methods
+
+- Inheritence 
+-Polymorphism
+
+___
+
+# `this` in the Global scope 
+
+- Execution Context (Running Environment)
+- global object / globalThis
+
+# The Global Object
+
+-global variables declared with let or const are NOT added to the global obj
+
+- And how does it relate to global variables?
+- Global variables are properties that are starred on the global object
+
+# `this` in a function/method
+
+- function invocation 
+	* is the global object
+- method invocation 
+	* is the object that called the method
+
+# What is Execution Context?
+
+- Mental model 
+- Let's review scope
+- When and how is the binding of `this` determined?
